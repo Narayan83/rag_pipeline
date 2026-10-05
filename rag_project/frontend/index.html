@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit assistant</title>
+  <link rel="stylesheet" href="/static/styles.css?v=5" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M7 3.5h7.2L19 8.2V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5A1.5 1.5 0 0 1 7.5 3.5H7z" />
+          <path d="M14 3.5V8h5" />
+          <path d="M9 13h6M9 16.5h4" />
+        </svg>
+      </span>
+      <h1>Audit assistant</h1>
+      <button id="refresh" type="button" class="icon-btn" title="Refresh" aria-label="Refresh">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M20 12a8 8 0 1 1-2.2-5.5" />
+          <path d="M20 4v5h-5" />
+        </svg>
+      </button>
+    </div>
+
+    <button id="documents-btn" type="button" class="nav-btn">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <path d="M4 6.5h6l2 2H20v9.5A1.5 1.5 0 0 1 18.5 19.5h-13A1.5 1.5 0 0 1 4 18V6.5z" />
+      </svg>
+      Documents
+    </button>
+
+    <button id="new-chat" type="button" class="new-chat">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M5 16.5V19h2.6L18 8.6 15.4 6 5 16.5z" />
+        <path d="M13.8 7.6l2.6 2.6" />
+      </svg>
+      New chat
+    </button>
+
+    <nav id="history" class="history" aria-label="Recent chats"></nav>
+
+    <div class="sidebar-foot">
+      <span class="avatar" aria-hidden="true">A</span>
+      <div class="whoami">
+        <strong>This browser</strong>
+        <span>local session</span>
+      </div>
+    </div>
+  </aside>
+
+  <section class="workspace">
+    <div id="documents-view" class="documents-view" hidden>
+      <div class="documents-inner">
+        <div class="documents-head">
+          <div>
+            <h2>Documents</h2>
+            <p>Inspection reports, Acts, Rules, and Government Orders already in the database.</p>
+          </div>
+          <button id="ingest" type="button">Ingest documents</button>
+        </div>
+        <div id="document-list" class="document-list"></div>
+      </div>
+    </div>
+
+    <div id="chat-view" class="chat-view">
+      <div id="transcript" class="transcript" aria-live="polite">
+        <div id="thread" class="thread"></div>
+      </div>
+      <form id="composer" class="composer">
+        <div class="composer-box">
+          <label class="sr" for="message">Message</label>
+          <textarea id="message" rows="1" placeholder="Ask about an audit finding, criterion, or provision..."></textarea>
+          <button type="submit" aria-label="Send">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M12 19V6" />
+              <path d="M6.5 11.5 12 6l5.5 5.5" />
+            </svg>
+          </button>
+        </div>
+        <p class="hint">Enter to send · Shift+Enter for a new line</p>
+      </form>
+    </div>
+  </section>
+  <script src="/static/app.js?v=5"></script>
+</body>
+</html>

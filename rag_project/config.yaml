@@ -1,0 +1,33 @@
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: postpass
+  name: rag_project
+
+paths:
+  ir_documents: ir_documents
+  criteria_documents: criteria_documents
+  markdown_dir: data/markdown
+
+services:
+  ocr_url: http://192.168.200.29:11480
+  ocr_model: chai-ocr-2
+  embed_url: http://192.168.200.22:11450
+  embed_model: bge-m3
+  llm_url: http://10.10.116.215:30004
+  llm_model: gemma-4-26b-a4b-it
+  request_timeout_seconds: 120
+
+retrieval:
+  top_k: 5
+  max_context_length: 8000
+
+server:
+  host: 127.0.0.1
+  port: 8080
+
+tracing:
+  enabled: true
+  project_name: narayan_yukta
+  opik_url: http://192.168.200.29:28173
